@@ -27,7 +27,7 @@ app.get('/', (req, res)=>{
 });
 
 // hook up controller(s)
-
+app.use('/api/questions', require('./controllers/questions.js'));
 
 // Listener
 app.listen(PORT, ()=>{
