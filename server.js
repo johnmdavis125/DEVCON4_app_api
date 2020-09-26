@@ -28,6 +28,7 @@ app.get('/', (req, res)=>{
 
 // hook up controller(s)
 app.use('/api/questions', require('./controllers/questions.js'));
+app.use('/api/responses', require('./controllers/responses.js'));
 
 // Listener
 app.listen(PORT, ()=>{

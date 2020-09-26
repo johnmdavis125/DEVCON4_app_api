@@ -7,9 +7,9 @@ const ResponseSchema = new Schema(
         userName: {type: String, required: true},
         userImage: {type: String, required: true},
         category: {type: String, required: true},
-        topic: {type: String, required: true},
         body: {type: String, required: true}
-        // Alt media types
+        // All media types
+        // ID of question responding to
     }
 )
 
