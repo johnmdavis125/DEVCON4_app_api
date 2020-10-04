@@ -7,6 +7,7 @@ const path = require('path');
 const cors = require('cors'); 
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI;
+const passport = require('./config/passport.js')();
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
@@ -20,6 +21,7 @@ db.on('open', ()=>{
 // Middleware //
 app.use(cors());
 app.use(express.json());
+app.use(passport.initialize());
 
 // Cxn Test
 app.get('/', (req, res)=>{
@@ -27,7 +29,11 @@ app.get('/', (req, res)=>{
 });
 
 // hook up controller(s)
+app.use('/api/questions', require('./controllers/questions.js'));
+app.use('/api/responses', require('./controllers/responses.js'));
 
+const userController = require('./controllers/users.js');
+app.use('/users', userController);
 
 // Listener
 app.listen(PORT, ()=>{
