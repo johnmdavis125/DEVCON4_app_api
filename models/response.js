@@ -8,9 +8,8 @@ const ResponseSchema = new Schema(
         userImage: {type: String, required: true},
         category: {type: String, required: true},
         qid: {type: String, required: true},
-        body: {type: String, required: true}
-        // All media types
-        // ID of question responding to
+        body: {type: String, required: true},
+        votes: {type: Number, required: true}
     }
 )
 
