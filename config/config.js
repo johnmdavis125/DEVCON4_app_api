@@ -1,5 +1,7 @@
+const secret = process.env.KEY;
+
 module.exports = {
-    jwtSecret: 'JwtS3cr3tK3Y',
+    jwtSecret: secret,
     jwtSession: {
         session: false
     }
